@@ -14,8 +14,10 @@ def test_init():
 def test_add_class():
     new_class = 'Intro to Feminism'
     charles = Student("Charles Babbage", "senior", ["mechanical engineering"])
+    
+    # act
     charles.add_class(new_class)
-
+    # assert
     assert len(charles.courses) == 2
     assert new_class in charles.courses
 
@@ -42,3 +44,16 @@ def test_get_student_with_more_classes():
     )
 
     # TODO: write assertions
+
+def test_empty_course_list():
+    
+    # arrange/act
+    charles = Student("Charles Babbage", "senior", [])
+    ada = Student(
+        "Ada Lovelace",
+        "sophomore",
+        None
+    )
+    
+    # assert
+    assert charles.courses == []
